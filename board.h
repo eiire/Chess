@@ -4,3 +4,5 @@
 typedef struct {
 	int 	space;
 } Board;
+
+void output (Board *mass);
