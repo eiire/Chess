@@ -1,2 +1,2 @@
-doska : board.c
-	gcc -Wall -o  doska board.c
+program: board.c
+	gcc -Wall -o  program board.c
