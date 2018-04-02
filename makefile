@@ -1,3 +1,7 @@
+all: cl
+
+cl: build/board.o build/output_board.o build/makemove.o
+
 program: build/board.o build/output_board.o build/makemove.o
 	gcc -Wall build/board.o build/output_board.o build/makemove.o -o program
 
@@ -11,5 +15,5 @@ build/makemove.o: makemove.c
 	gcc -Wall -c makemove.c -o build/makemove.o
 
 .PHONY: clean
-clean:
-rm -rf build/*.o
+clean: 
+	rm -rf build/*.o
