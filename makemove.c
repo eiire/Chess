@@ -9,7 +9,7 @@ void makemove (Board *array_chess)
 	char tire;
 	printf("Введите координаты в формате откуда - куда: ");
 	
-	for (int i = 0; i < 1000000; i++) {
+	for (int i = 0; i < 8; i++) {
 
 		scanf("%c%d", &letter_1, &number_1);
 		scanf("%c", &tire);
