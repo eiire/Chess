@@ -3,7 +3,6 @@
 
 void output (Board *array_chess)
 {
-	char width[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char white_f[8] = {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'};
 	char white_p[8] = {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'};
 	char black_f[8] = {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r',};
