@@ -9,3 +9,7 @@ build/output_board.o: output_board.c
 
 build/makemove.o: makemove.c
 	gcc -Wall -c makemove.c -o build/makemove.o
+
+.PHONY: clean
+clean:
+rm -rf build/*.o
