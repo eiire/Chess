@@ -2,6 +2,7 @@
 
 void makemove (Board *array_chess)
 {
+	int i, j;
 	int number_1, number_2;
 	char letter_1, letter_2;
 	int index_1, index_2;
@@ -9,7 +10,7 @@ void makemove (Board *array_chess)
 	char tire;
 	printf("Введите координаты в формате откуда - куда: ");
 	
-	for (int i = 0; i < 8; i++) {
+	for (i = 0; i < 100000; i++) {
 
 		scanf("%c%d", &letter_1, &number_1);
 		scanf("%c", &tire);
@@ -37,9 +38,9 @@ void makemove (Board *array_chess)
 
 			// Вывод доски
 			printf("  A B C D E F G H\n");
-			for (int i = 0; i < 8; i++) {
+			for (i = 0; i < 8; i++) {
     		  	printf("%d|", i+1);
-    		    for (int j = 0; j < 8; j++) {
+    		    for (j = 0; j < 8; j++) {
     		        printf("%c|", array_chess[i*8+j].space);
     		    }
     		    printf ("\n");
@@ -51,9 +52,10 @@ void makemove (Board *array_chess)
 // Преобразовывает координаты в индекс элемента, находящийся в массиве(доска)
 int decode (char letter, int number)
 {
+	int i;
 	int index;
 	int width[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-	for(int i = 0; i < 8; i++) {
+	for(i = 0; i < 8; i++) {
 		if (letter == width[i]) {
 			index = i;
 			index = (8 * (number - 1)) + index;
