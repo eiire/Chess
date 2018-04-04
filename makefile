@@ -1,6 +1,4 @@
-all: cl
-
-cl: build/board.o build/output_board.o build/makemove.o
+all: program
 
 program: build/board.o build/output_board.o build/makemove.o
 	gcc -Wall build/board.o build/output_board.o build/makemove.o -o program
