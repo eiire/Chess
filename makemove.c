@@ -64,9 +64,3 @@ int decode (char letter, int number)
 
 	return index;
 }
-
-/*int checking (int letter_1, int number_1, int letter_2, int number_2, int flag, char tire)
-{
-	char wight[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-	int height[8] = {1, 2, 3, 4, 5, 6, 7, 8};
-}*/
