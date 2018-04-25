@@ -17,6 +17,6 @@ int check_input(char letter_1, int number_1, char letter_2, int number_2, char t
 int decode(char letter, int number);
 int check_move(Board *array_chess, int index_1, int index_2);
 int check_step(Board *array_chess, int index_1, int index_2);
-void swap(Board *array_chess, int index_1, int index_2, char flag_swap);
+int swap(Board *array_chess, int index_1, int index_2, char flag_swap, int priority);
 
 #endif
