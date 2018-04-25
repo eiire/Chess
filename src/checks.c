@@ -80,6 +80,16 @@ int check_move(Board *array_chess, int index_1, int index_2)
 			}
 		}
 	}
+
+	/*if (array_chess[index_1].space == 'K' || array_chess[index_1].space == 'k') {
+		if (array_chess[index_1].color == 1 && array_chess[index_2].color == 0) {
+			if (index_1 + 17 == index_2) {
+				return 1;
+			} else if (index_1 )
+		}
+	}*/
+
+	return 1;
 }
 
 int check_step(Board *array_chess, int index_1, int index_2)
@@ -94,5 +104,11 @@ int check_step(Board *array_chess, int index_1, int index_2)
 		return 2;
 	} else if (array_chess[index_1].color == 3 && array_chess[index_2].color == 3) {
 		return 2;
+	} else if (array_chess[index_1].color == 1 && array_chess[index_2].color == 1) {
+		return 3;
+	} else if (array_chess[index_1].color == 0 && array_chess[index_2].color == 0) {
+		return 3;
+	} else if (array_chess[index_1].color == 3 && array_chess[index_2].color == 3) {
+		return 3;
 	}
 }
