@@ -8,7 +8,6 @@ void board_filling(Board *array_chess)
 	char black_f[8] = {'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r',};
 	char black_p[8] = {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'};
 
-	// Заполнение шахматной доски
 	for (i = 0; i < 8; i++) {
 		array_chess[i].space = white_f[i];
 		array_chess[i].color = 1;

@@ -1,5 +1,23 @@
 #include "board.h"
 
+int check_step(Board *array_chess, int index_1, int index_2)
+{
+	if ((array_chess[index_1].color == 1 && array_chess[index_2].color == 0)
+			|| (array_chess[index_1].color == 0 && array_chess[index_2].color == 1)) {
+		return 1;
+	} else if ((array_chess[index_1].color == 1 && array_chess[index_2].color == 3)
+			|| (array_chess[index_1].color == 0 && array_chess[index_2].color == 3)
+			|| (array_chess[index_1].color == 3 && array_chess[index_2].color == 3)) {
+		return 2;
+	} else if ((array_chess[index_1].color == 1 && array_chess[index_2].color == 1)
+			|| (array_chess[index_1].color == 0 && array_chess[index_2].color == 0)
+			|| (array_chess[index_1].color == 3 && array_chess[index_2].color == 3)
+			|| (array_chess[index_1].color == 3 && array_chess[index_2].color == 1)
+			|| (array_chess[index_1].color == 3 && array_chess[index_2].color == 2)) {
+		return 3;
+	}
+}
+
 int check_input(char letter_1, int number_1, char letter_2, int number_2, char tire)
 {
 	int i;
@@ -81,8 +99,8 @@ int check_move(Board *array_chess, int index_1, int index_2)
 		}
 	}
 
-	if (array_chess[index_1].space == 'K' || array_chess[index_1].space == 'k') {
-		if (array_chess[index_1].color == 1 && array_chess[index_2].color == 0) {
+	if (array_chess[index_1].space == 'N' || array_chess[index_1].space == 'n') {
+		if (array_chess[index_1].color == 1 && array_chess[index_2].color == 3) {
 			if (index_1 + 17 == index_2) {
 				return 1;
 			} else if (index_1 + 10 == index_2) {
@@ -98,25 +116,4 @@ int check_move(Board *array_chess, int index_1, int index_2)
 	}
 
 	return 1;
-}
-
-int check_step(Board *array_chess, int index_1, int index_2)
-{
-	if (array_chess[index_1].color == 1 && array_chess[index_2].color == 0) {
-		return 1;
-	} else if (array_chess[index_1].color == 1 && array_chess[index_2].color == 3) {
-		return 2;
-	} else if (array_chess[index_1].color == 0 && array_chess[index_2].color == 1) {
-		return 1;
-	} else if (array_chess[index_1].color == 0 && array_chess[index_2].color == 3) {
-		return 2;
-	} else if (array_chess[index_1].color == 3 && array_chess[index_2].color == 3) {
-		return 2;
-	} else if (array_chess[index_1].color == 1 && array_chess[index_2].color == 1) {
-		return 3;
-	} else if (array_chess[index_1].color == 0 && array_chess[index_2].color == 0) {
-		return 3;
-	} else if (array_chess[index_1].color == 3 && array_chess[index_2].color == 3) {
-		return 3;
-	}
 }
