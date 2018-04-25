@@ -2,6 +2,7 @@
 
 void makemove(Board *array_chess)
 {
+	int priority = 1;
 	int number_1, number_2;
 	char letter_1, letter_2;
 	int index_1, index_2;
@@ -20,32 +21,58 @@ void makemove(Board *array_chess)
 		// Получение индексов начала и конца хода 
 		index_1 = decode(letter_1, number_1);
 		index_2 = decode(letter_2, number_2);
-
 		int flag_2 = check_move(array_chess, index_1, index_2);
 		if (flag_2 == 1) {
 			int flag_swap = check_step(array_chess, index_1, index_2);
-			swap(array_chess, index_1, index_2, flag_swap);
+			priority = swap(array_chess, index_1, index_2, flag_swap, priority);
 			output_board(array_chess);
+			//printf("%d\n", priority);
 		}
 		//output_board(array_chess);
 	}
 }
 
-void swap(Board *array_chess, int index_1, int index_2, char flag_swap) {
-	if (flag_swap == 1) {
-		array_chess[index_2].space = array_chess[index_1].space;
-		array_chess[index_2].color = array_chess[index_1].color;
-		array_chess[index_1].space = ' ';
-		array_chess[index_1].color = 3;
+int swap(Board *array_chess, int index_1, int index_2, char flag_swap, int priority) {
+	if ((array_chess[index_1].color == 1) && (priority == 1)) {
+		if (flag_swap == 1) {
+			array_chess[index_2].space = array_chess[index_1].space;
+			array_chess[index_2].color = array_chess[index_1].color;
+			array_chess[index_1].space = ' ';
+			array_chess[index_1].color = 3;
 
-	} else if (flag_swap == 2) {
-		Board buffer;
-		buffer.space = array_chess[index_2].space;
-		buffer.color = array_chess[index_2].color;
-		array_chess[index_2].space = array_chess[index_1].space;
-		array_chess[index_2].color = array_chess[index_1].color;
-		array_chess[index_1].space = buffer.space;
-		array_chess[index_1].color = buffer.color;
+		} else if (flag_swap == 2) {
+			Board buffer;
+			buffer.space = array_chess[index_2].space;
+			buffer.color = array_chess[index_2].color;
+			array_chess[index_2].space = array_chess[index_1].space;
+			array_chess[index_2].color = array_chess[index_1].color;
+			array_chess[index_1].space = buffer.space;
+			array_chess[index_1].color = buffer.color;
+		}
+	//printf("%d\n", priority);
+	return 0;
+	} else if ((array_chess[index_1].color == 0) && (priority == 0)) {
+		if (flag_swap == 1) {
+			array_chess[index_2].space = array_chess[index_1].space;
+			array_chess[index_2].color = array_chess[index_1].color;
+			array_chess[index_1].space = ' ';
+			array_chess[index_1].color = 3;
+
+		} else if (flag_swap == 2) {
+			Board buffer;
+			buffer.space = array_chess[index_2].space;
+			buffer.color = array_chess[index_2].color;
+			array_chess[index_2].space = array_chess[index_1].space;
+			array_chess[index_2].color = array_chess[index_1].color;
+			array_chess[index_1].space = buffer.space;
+			array_chess[index_1].color = buffer.color;
+		}
+
+	return 1;
+	} else {
+		printf("Долбаеб\n");
+		return priority;
+		//printf("%d\n", priority);
 	}
 }
 
