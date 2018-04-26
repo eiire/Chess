@@ -15,6 +15,8 @@ int check_step(Board *array_chess, int index_1, int index_2)
 			|| (array_chess[index_1].color == 3 && array_chess[index_2].color == 1)
 			|| (array_chess[index_1].color == 3 && array_chess[index_2].color == 2)) {
 		return 3;
+	} else {
+		return 3;
 	}
 }
 
