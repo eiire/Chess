@@ -6,7 +6,7 @@
 #include <malloc.h>
 
 typedef struct {
-	char 	space;
+	char space;
 	int  color;
 } Board;
 
